@@ -13,13 +13,15 @@ SERVER_URL_ADD: string ='https://f2cd7047.ngrok.io/api/Settings/InsUpdateDesigna
 
 SERVER_URL_DOC: string ='https://f2cd7047.ngrok.io/api/Settings/GetDocumentType';
 SERVER_URL_DOC_ADD: string ='https://f2cd7047.ngrok.io/api/Settings/InsUpdateDocumentType';
-SERVER_URL_DOC_Del: string='https://f2cd7047.ngrok.io/api/Settings/DeleteDocumentType?DocumentTypeId={DocumentTypeId}';
+SERVER_URL_DOC_Del: string='https://f2cd7047.ngrok.io/api/Settings/DeleteDocumentType?DocumentTypeId=';
 
-SERVER_URL_DESG_EDIT: string='https://f2cd7047.ngrok.io/api/Settings/InsUpdateDesignation';
+SERVER_URL_DESG_EDIT: string='https://f2cd7047.ngrok.io/api/Settings/GetDesignationsDetails?DesignationId=';
 
-
+SERVER_URL_DOC_EDIT: string='https://f2cd7047.ngrok.io/api/Settings/GetDocumentTypeDetails?DocumentTypeId={DocumentTypeId}';
 
 SERVER_URL_DESG_DEL: string='https://f2cd7047.ngrok.io/api/Settings/DeleteDesignation?DesignationId=';
+
+
 
 
 public getDesignations() {
@@ -49,23 +51,31 @@ return this.http.post(this.SERVER_URL_DOC_ADD, body, {headers: head});
 }
 
 public deleteDocument(documentID) {
-// let head = new HttpHeaders().set("Content-Type", "application/json");
+let head = new HttpHeaders().set("Content-Type", "application/json");
 console.log('how it is getting ID?:' + documentID);
 // console.log(this.http.delete(this.SERVER_URL + designationID), { headers: head });
-return this.http.delete(this.SERVER_URL_DOC_Del + documentID);
+return this.http.post(this.SERVER_URL_DOC_Del+documentID, { headers: head });
 }
 
-editDesg(item) {
-let body = JSON.stringify(item);
+public deleteDesignation(designationID) {
 let head = new HttpHeaders().set("Content-Type", "application/json");
-return this.http.put(this.SERVER_URL_DESG_EDIT, body, { headers: head });
+console.log('how it is getting ID?:' + designationID);
+// console.log(this.http.delete(this.SERVER_URL + designationID), { headers: head });
+return this.http.post(this.SERVER_URL_DESG_DEL+designationID, { headers: head });
 }
-deleteDesg(item) {
-    let body = JSON.stringify(item);
-    let head = new HttpHeaders().set("Content-Type", "application/json");
-    return this.http.put(this.SERVER_URL_DESG_DEL, body, { headers: head });
-    }
 
+editDesg(arrDesig,id) {
+let body = JSON.stringify(arrDesig);
+let head = new HttpHeaders().set("Content-Type", "application/json");
+return this.http.post(this.SERVER_URL_DESG_EDIT, body, { headers: head });
+}
+
+
+// editDoc(item) {
+// let body = JSON.stringify(item);
+// let head = new HttpHeaders().set("Content-Type", "application/json");
+// return this.http.put(this.SERVER_URL_DESG_EDIT, body, { headers: head });
+// }
 
 public globalPostService(url: string, data: any) {
 return this.http.post(url, data).toPromise();

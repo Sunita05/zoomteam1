@@ -1,6 +1,6 @@
 export class Document {
     public constructor(
-    public Id: number,
+    public id: number,
     public OrganizationId: number,
     public Isgeneral:boolean,
     public name: string,

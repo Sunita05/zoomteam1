@@ -1,6 +1,6 @@
 export class Designation {
     public constructor(
-    public Id: number,
+    public id: number,
     public OrganizationId: number,
     public name: string,
     public description: string,

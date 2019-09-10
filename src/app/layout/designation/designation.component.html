@@ -41,8 +41,8 @@
     <thead class='table-title'>
     <tr>
     <td>Index</td>
-    <td>Name</td>
-    <td>Description</td>
+    <td>name</td>
+    <td>description</td>
     <td><i id='text-align-right'>Actions</i></td>
     </tr>
     </thead>
@@ -53,7 +53,7 @@
     <td>{{item.description}}</td>
     <td>
     <button class="btn btn-secondary" (click)="openEdit(kiran,'Edit',i)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> |
-    <button class="btn btn-danger" (click)="onDesigDelete(item)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+    <button class="btn btn-danger" (click)="onDesigDelete(item.id)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
     </tr>
     </tbody>
     </table>
