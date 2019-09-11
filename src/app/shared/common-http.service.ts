@@ -8,34 +8,31 @@ import * as $ from 'jquery';
 export class CommonHttpService {
 constructor(private http: HttpClient,private AngHttp: Http) { }
 
-SERVER_URL: string = 'https://4d1cff26.ngrok.io/api/Settings/GetDesignations';
-SERVER_URL_ADD: string ='https://4d1cff26.ngrok.io/api/Settings/InsUpdateDesignation';
+SERVER_URL: string = 'https://9c99950c.ngrok.io/api/Settings/GetDesignations';
+SERVER_URL_ADD: string ='https://9c99950c.ngrok.io/api/Settings/InsUpdateDesignation';
 
-SERVER_URL_DOC: string ='https://4d1cff26.ngrok.io/api/Settings/GetDocumentType';
-SERVER_URL_DOC_ADD: string ='https://4d1cff26.ngrok.io/api/Settings/InsUpdateDocumentType';
-SERVER_URL_DOC_Del: string='https://4d1cff26.ngrok.io/api/Settings/DeleteDocumentType?DocumentTypeId=';
+SERVER_URL_DOC: string ='https://9c99950c.ngrok.io/api/Settings/GetDocumentType';
+SERVER_URL_DOC_ADD: string ='https://9c99950c.ngrok.io/api/Settings/InsUpdateDocumentType';
+SERVER_URL_DOC_Del: string='https://9c99950c.ngrok.io/api/Settings/DeleteDocumentType?DocumentTypeId=';
 
-SERVER_URL_DESG_EDIT: string='https://4d1cff26.ngrok.io/api/Settings/GetDesignationsDetails?DesignationId=';
+SERVER_URL_DESG_EDIT: string='https://9c99950c.ngrok.io/api/Settings/GetDesignationsDetails?DesignationId=';
 
-SERVER_URL_DOC_EDIT: string='https://4d1cff26ngrok.io/api/Settings/GetDocumentTypeDetails?DocumentTypeId={DocumentTypeId}';
+SERVER_URL_DOC_EDIT: string='https://9c99950c.ngrok.io/api/Settings/GetDocumentTypeDetails?DocumentTypeId={DocumentTypeId}';
 
-SERVER_URL_DESG_DEL: string='https://4d1cff26.ngrok.io/api/Settings/DeleteDesignation?DesignationId=';
+SERVER_URL_DESG_DEL: string='https://9c99950c.ngrok.io/api/Settings/DeleteDesignation?DesignationId=';
 
+// public getDesignations() {
+// return this.http.get(this.SERVER_URL);
+// }
 
+// public addDesignation(f) {
+// console.log(f);
+// console.log(JSON.stringify(f));
+// let body = JSON.stringify(f);
+// let head = new HttpHeaders().set("Content-Type", "application/json");
+// return this.http.post(this.SERVER_URL_ADD, body, {headers: head});
 
-
-public getDesignations() {
-return this.http.get(this.SERVER_URL);
-}
-
-public addDesignation(f) {
-console.log(f);
-console.log(JSON.stringify(f));
-let body = JSON.stringify(f);
-let head = new HttpHeaders().set("Content-Type", "application/json");
-return this.http.post(this.SERVER_URL_ADD, body, {headers: head});
-
-}
+// }
 
 public getDocuments() {
 return this.http.get(this.SERVER_URL_DOC);
@@ -57,18 +54,18 @@ console.log('how it is getting ID?:' + documentID);
 return this.http.post(this.SERVER_URL_DOC_Del+documentID, { headers: head });
 }
 
-public deleteDesignation(designationID) {
-let head = new HttpHeaders().set("Content-Type", "application/json");
-console.log('how it is getting ID?:' + designationID);
-// console.log(this.http.delete(this.SERVER_URL + designationID), { headers: head });
-return this.http.post(this.SERVER_URL_DESG_DEL+designationID, { headers: head });
-}
+// public deleteDesignation(designationID) {
+// let head = new HttpHeaders().set("Content-Type", "application/json");
+// console.log('how it is getting ID?:' + designationID);
+// // console.log(this.http.delete(this.SERVER_URL + designationID), { headers: head });
+// return this.http.post(this.SERVER_URL_DESG_DEL+designationID, { headers: head });
+// }
 
-editDesg(arrDesig,id) {
-let body = JSON.stringify(arrDesig);
-let head = new HttpHeaders().set("Content-Type", "application/json");
-return this.http.post(this.SERVER_URL_DESG_EDIT, body, { headers: head });
-}
+// editDesg(id,item) {
+// let body = JSON.stringify(item);
+// let head = new HttpHeaders().set("Content-Type", "application/json");
+// return this.http.post(this.SERVER_URL_DESG_EDIT+id, body, { headers: head });
+// }
 
 
 // editDoc(item) {
@@ -79,8 +76,8 @@ return this.http.post(this.SERVER_URL_DESG_EDIT, body, { headers: head });
 
 public globalPostService(url: string, data: any) {
 return this.http.post(url, data).toPromise();
-
 }
+
 public globalGetService(url: string, data: any) {
 var querystring = "?" + $.param(data);
 return this.http.get(url + querystring).toPromise().
