@@ -8,18 +8,18 @@ import * as $ from 'jquery';
 export class CommonHttpService {
 constructor(private http: HttpClient,private AngHttp: Http) { }
 
-SERVER_URL: string = 'https://f2cd7047.ngrok.io/api/Settings/GetDesignations';
-SERVER_URL_ADD: string ='https://f2cd7047.ngrok.io/api/Settings/InsUpdateDesignation';
+SERVER_URL: string = 'https://4d1cff26.ngrok.io/api/Settings/GetDesignations';
+SERVER_URL_ADD: string ='https://4d1cff26.ngrok.io/api/Settings/InsUpdateDesignation';
 
-SERVER_URL_DOC: string ='https://f2cd7047.ngrok.io/api/Settings/GetDocumentType';
-SERVER_URL_DOC_ADD: string ='https://f2cd7047.ngrok.io/api/Settings/InsUpdateDocumentType';
-SERVER_URL_DOC_Del: string='https://f2cd7047.ngrok.io/api/Settings/DeleteDocumentType?DocumentTypeId=';
+SERVER_URL_DOC: string ='https://4d1cff26.ngrok.io/api/Settings/GetDocumentType';
+SERVER_URL_DOC_ADD: string ='https://4d1cff26.ngrok.io/api/Settings/InsUpdateDocumentType';
+SERVER_URL_DOC_Del: string='https://4d1cff26.ngrok.io/api/Settings/DeleteDocumentType?DocumentTypeId=';
 
-SERVER_URL_DESG_EDIT: string='https://f2cd7047.ngrok.io/api/Settings/GetDesignationsDetails?DesignationId=';
+SERVER_URL_DESG_EDIT: string='https://4d1cff26.ngrok.io/api/Settings/GetDesignationsDetails?DesignationId=';
 
-SERVER_URL_DOC_EDIT: string='https://f2cd7047.ngrok.io/api/Settings/GetDocumentTypeDetails?DocumentTypeId={DocumentTypeId}';
+SERVER_URL_DOC_EDIT: string='https://4d1cff26ngrok.io/api/Settings/GetDocumentTypeDetails?DocumentTypeId={DocumentTypeId}';
 
-SERVER_URL_DESG_DEL: string='https://f2cd7047.ngrok.io/api/Settings/DeleteDesignation?DesignationId=';
+SERVER_URL_DESG_DEL: string='https://4d1cff26.ngrok.io/api/Settings/DeleteDesignation?DesignationId=';
 
 
 
